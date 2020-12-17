@@ -29,6 +29,10 @@ function DoseController(healthMonitor, medicinePump, alertService) {
                     quantity: 2
                 });
         }
+
+        //how to manage "Gdy pompa nie zadziała (może się to zdarzyć przy intensywnym ruchu ręką)"
+        // my idea is that to implement that there might be like 20% to throw error when the pressure is wrong (> 150, <90 && >60 ...)
+        // but there also must be condition that after one error during second time everything will be fine
     }
 
 }

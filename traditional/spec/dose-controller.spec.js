@@ -86,4 +86,31 @@ describe('Dose Controller', function () {
         });
     })
 
+    it('Gdy pompa nie zadziała (może się to zdarzyć przy intensywnym ruchu ręką), ponów próbę.', () => {
+        //given
+        medicinePump = {
+            dose: jest.fn().mockReturnValueOnce(Error).mockReturnValueOnce(Object),
+            getTimeSinceLastDoseInMinutes: function (medicine) {
+                // we don't care what the implementation of this method is
+            }
+        }
+        const healthMonitor = {
+            getSystolicBloodPressure: function () {
+                return 85;
+            }
+        }
+        const alertService = AlertService();
+
+        doseController = DoseController(healthMonitor, medicinePump, alertService);
+
+        //when
+        doseController.checkHealthAndApplyMedicine();
+
+        //then
+        //can I do that?
+        expect(medicinePump.dose.mock.results[0].value).toBe(Error);
+        // ???
+        // expect(medicinePump.dose.mock.results[1].value).toBe(Object);
+    })
+
 });
