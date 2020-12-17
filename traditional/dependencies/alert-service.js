@@ -5,3 +5,5 @@ function AlertService() {
         }
     }
 }
+
+module.exports = AlertService;

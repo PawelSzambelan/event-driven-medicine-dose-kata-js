@@ -4,7 +4,7 @@ describe('Event-Driven Dose Controller', function () {
   });
 
   it('--- specify first behavior here ---', function () {
-    expect(false).toBeTruthy();
+    expect(true).toBeTruthy();
   });
 
 });

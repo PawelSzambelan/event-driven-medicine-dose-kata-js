@@ -5,3 +5,5 @@ function HealthMonitor() {
         }
     }
 }
+
+module.exports = HealthMonitor;
